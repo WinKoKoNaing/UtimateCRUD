@@ -75,7 +75,7 @@ export default function Header(props) {
       >
         <Grid Item xs = {10}>
           <Typography variant="h6" style={{ fontFamily: "pyidaungsu" }}>
-            Department Listing
+            Department Listening
           </Typography>
         </Grid>
         <Grid Item xs = {2}>
