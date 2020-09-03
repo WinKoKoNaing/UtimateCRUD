@@ -114,7 +114,7 @@ export default function DepItem(props) {
         </Grid>
       </Grid>
       <Dialog
-        style={{ width: "30%", margin: "auto" }}
+        // style={{ width: "30%", margin: "auto" }}
         open={updateOpen}
         onClose={handleUpdateClose}
         aria-labelledby="form-dialog-title"

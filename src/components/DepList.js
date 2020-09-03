@@ -5,9 +5,9 @@ import { Typography } from "@material-ui/core";
 import DepItem from "./DepItem";
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "50%",
+    maxWidth: "100%",
     paddingLeft: theme.spacing(1),
-    flex: 1,
+    flexGlow: 1,
     marginLeft: theme.spacing(1),
     fontFamily: "Pyidaungsu",
   },
@@ -38,10 +38,10 @@ export default function DepList(props) {
     <div className={classes.root}>
       <div className={classes.line}></div>
       <Grid container direction="row" className={classes.headerTitle}>
-        <Grid Item xs={2}>
+        <Grid Item xs= {2}>
           <Typography style={{ fontFamily: "pyidaungsu" }}>No.</Typography>
         </Grid>
-        <Grid Item xs={10}>
+        <Grid Item xs = {10}>
           <Typography style={{ fontFamily: "pyidaungsu" }}>
             Department Name
           </Typography>

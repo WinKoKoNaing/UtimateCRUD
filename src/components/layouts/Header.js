@@ -6,8 +6,8 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { Typography } from "@material-ui/core";
 import Dialog from "@material-ui/core/Dialog";
 
-import {  red } from "@material-ui/core/colors";
-import ClearIcon from '@material-ui/icons/Clear';
+import { red } from "@material-ui/core/colors";
+import ClearIcon from "@material-ui/icons/Clear";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -18,11 +18,11 @@ import TextField from "@material-ui/core/TextField";
 const useStyles = makeStyles((theme) => ({
   root: {
     fontWeight: "bold",
-    width: "50%",
+    maxWidth: "100%",
     padding: theme.spacing(1),
     marginTop: theme.spacing(5),
     marginLeft: theme.spacing(5),
-    flex: 1,
+    flexGrow: 1,
     fontFamily: "Pyidaungsu",
   },
   leftAlignDialogActions: {
@@ -49,32 +49,36 @@ export default function Header(props) {
 
   const handleClose = () => {
     setOpen(false);
-   
   };
   const onTextFieldChange = (e) => {
     const { value } = e.target;
     setDep(value);
-    
   };
-  const handlePostSuccessClose = ()=>{
-    setPostSuccessOpen(false)
-  }
+  const handlePostSuccessClose = () => {
+    setPostSuccessOpen(false);
+  };
   const addDep = () => {
     props.addDep(dep);
     setOpen(false);
-    setPostSuccessOpen(true)
+    setPostSuccessOpen(true);
   };
   const classes = useStyles();
 
   return (
     <div>
-      <Grid container direction="row" className={classes.root}>
-        <Grid Item xs={10}>
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="center"
+        className={classes.root}
+      >
+        <Grid Item xs = {10}>
           <Typography variant="h6" style={{ fontFamily: "pyidaungsu" }}>
             Department Listing
           </Typography>
         </Grid>
-        <Grid Item xs={2}>
+        <Grid Item xs = {2}>
           <AddCircleIcon
             onClick={handleClickOpen}
             style={{ color: green[500], fontSize: 40 }}
@@ -83,7 +87,7 @@ export default function Header(props) {
         </Grid>
       </Grid>
       <Dialog
-        style={{ width: "30%", margin: "auto" }}
+        // style={{ width: "30%", margin: "auto" }}
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
@@ -116,19 +120,29 @@ export default function Header(props) {
         open={postSuccessOpen}
         onClose={handlePostSuccessClose}
         aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description">
+        aria-describedby="alert-dialog-description"
+      >
         <DialogContent>
-        <Grid container spacing={1}>
-            <div item xs = {5}>
-              <CheckCircleOutlineIcon  style={{ color: green[500],fontSize : 25 }}  />
+          <Grid container spacing={1}>
+            <div item xs={5}>
+              <CheckCircleOutlineIcon
+                style={{ color: green[500], fontSize: 25 }}
+              />
             </div>
             {"  "}
-            <DialogContentText item xs = {7} style= {{marginLeft : 10}} id="alert-dialog-description">
-            Your data is successfully Created!
+            <DialogContentText
+              item
+              xs={7}
+              style={{ marginLeft: 10 }}
+              id="alert-dialog-description"
+            >
+              Your data is successfully Created!
             </DialogContentText>
-            <ClearIcon onClick = {handlePostSuccessClose} style = {{color : red[900],fontSize : 20,marginLeft:10}}/>
+            <ClearIcon
+              onClick={handlePostSuccessClose}
+              style={{ color: red[900], fontSize: 20, marginLeft: 10 }}
+            />
           </Grid>
-          
         </DialogContent>
       </Dialog>
     </div>
